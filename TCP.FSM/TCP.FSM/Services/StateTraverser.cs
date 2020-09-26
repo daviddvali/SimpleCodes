@@ -26,6 +26,9 @@ namespace TCP.FSM.Services {
           var nextState = _eventsMapper[state].FirstOrDefault(s => s.EventName == e);
           state = nextState != default ? nextState.NextState : StateType.ERROR;
         }
+        else {
+          break;
+        }
       }
 
       return state;
